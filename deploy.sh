@@ -21,6 +21,6 @@ git commit -m '修改一些东西'
 
 # 部署到 https://<USERNAME>.g1ithub.io/<REPO>
 # git push -f git@gitee.com:rainHou/cnode.git master:gh-pages
-git push -f git@gitee.com:rainHou/imitationCNode.git master:gh-pages
+git push -f git@github.com:TheHyyy/imitationCNode.git master:gh-pages
 
 cd -
