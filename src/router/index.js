@@ -1,29 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
+// eslint-disable-next-line no-unused-vars
+import App from '../App.vue'
+import Article from '../components/Article'
+import PostList from '../components/PostList'
+import UserInfo from '../components/UserInfo'
+import SlideBar from '../components/SlideBar'
 Vue.use(VueRouter)
 
 const routes = [
   {
+    name: 'root',
     path: '/',
-    name: 'Home',
-    component: Home
+    components: {
+      main: PostList,
+    },
+  },
+
+  {
+    name: 'post_content',
+    path: '/topic/:id&author=:name',
+    components: {
+      main: Article,
+      slidebar: SlideBar,
+    },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    name: 'user_info',
+    path: '/userinfo/:name',
+    components: {
+      main: UserInfo,
+    },
+  },
 ]
 
-const router = new VueRouter({
+export default new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
-
-export default router
